@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("$(function() {\n  if (window.DeviceMotionEvent && window.DeviceMotionEvent.requestPermission) {\n    // デバイスの加速度センサーへのアクセス許可を確認する必要がある\n    DeviceMotionEvent.requestPermission()\n      .then(state => {\n        // アクセスを許可する場合のみ実行可能\n        console.log(state);\n        if (state === 'granted') {\n          // 方向の計測結果を取得\n          $(document).on('deviceorientation', event => {\n            $('#orientation').text(`X: ${precision(event.beta)} / Y: ${precision(event.gamma)} / Z: ${precision(event.alpha)}`);\n          });\n          // 加速度の計測結果を取得\n          $(document).on('devicemotion', event => {\n            const accel = event.acceleration;\n            const accelG = event.accelerationIncludingGravity;\n            const rotation = event.rotationRate;\n            $('#acceleration').text(`X: ${precision(accel.x)} / Y: ${precision(accel.y)} / Z: ${precision(accel.z)}`);\n            $('#acceleration-gravity').text(`X: ${precision(accelG.x)} / Y: ${precision(accelG.y)} / Z: ${precision(accelG.z)}`);\n            $('#rotation-rate').text(`X: ${precision(rotation.beta)} / Y: ${precision(rotation.gamma)} / Z: ${precision(rotation)}`);\n          });\n        }\n      })\n  }\n\n  function precision(num) {\n    return num.toPrecision(4);\n  }\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

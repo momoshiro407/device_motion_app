@@ -7,7 +7,24 @@
 </head>
 
 <body>
-  Device Motion App
+  <div>
+    <div style="margin-bottom: 20px;">
+      <strong>方向 [deg]</strong>
+      <p id="orientation"></p>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <strong>加速度(平行移動) [m/s<sup>2</sup>]</strong>
+      <p id="acceleration"></p>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <strong>加速度(平行移動/重力考慮) [m/s<sup>2</sup>]</strong>
+      <p id="acceleration-gravity"></p>
+    </div>
+    <div>
+      <strong>加速度(回転) [deg/s]</strong>
+      <p id="rotation-rate"></p>
+    </div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="./main.js"></script>
 </body>
